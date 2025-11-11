@@ -13,7 +13,7 @@ public class MovieInfoController {
 
     @GetMapping
     public String hello() {
-        return "Movie Catalog Service is up and running on port 9090";
+        return "Movie Catalog Service is up and running on port 9091";
     }
 
 

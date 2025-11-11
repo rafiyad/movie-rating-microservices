@@ -12,7 +12,7 @@ public class RatingController {
 
     @GetMapping
     public String hello() {
-        return "Movie Rating Service is up and running on port 8083";
+        return "Movie Rating Service is up and running on port 9092";
     }
 
     @GetMapping("/{movieId}")

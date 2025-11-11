@@ -1,4 +1,4 @@
-package com.rafiyad.movie.info.service.entiry;
+package com.rafiyad.movie.catalog.entity;
 
 
 
