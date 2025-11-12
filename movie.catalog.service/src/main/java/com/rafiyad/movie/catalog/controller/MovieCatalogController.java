@@ -3,6 +3,7 @@ package com.rafiyad.movie.catalog.controller;
 import com.rafiyad.movie.catalog.entity.CatalogItem;
 import com.rafiyad.movie.catalog.entity.Movie;
 import com.rafiyad.movie.catalog.entity.MovieRating;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,10 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/catalogs")
 public class MovieCatalogController {
+
+    @Autowired
+    private RestTemplate restTemplate;
+
     @GetMapping
     public String hello() {
         return "Movie Catalog Service is up and running on port 9090";
@@ -30,7 +35,6 @@ public class MovieCatalogController {
     @GetMapping("/{userId}")
     public List<CatalogItem> getCatalogs(@PathVariable String userId) {
 
-        RestTemplate restTemplate = new RestTemplate();
         restTemplate.getForObject("http://localhost:9091/movies/" + userId, Movie.class);
 
         List<MovieRating> ratings = new ArrayList<>(
